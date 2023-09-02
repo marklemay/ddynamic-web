@@ -20,11 +20,20 @@ const regexpLinter = linter(view => {
   return diagnostics
 })
 
-let editor = new EditorView({
+new EditorView({
   extensions: [basicSetup, 
   //javascript(),
   //EXAMPLE(),
   regexpLinter
   ],
-  parent: document.body
+  parent: document.querySelector("#mainEditor")
+})
+
+new EditorView({
+  extensions: [basicSetup, 
+  //javascript(),
+  //EXAMPLE(),
+  regexpLinter
+  ],
+  parent: document.querySelector("#replEditor")
 })
