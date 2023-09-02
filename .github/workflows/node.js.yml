@@ -37,4 +37,4 @@ jobs:
         tag_name : thesis
         prerelease : true
 #           draft: true
-        files: rollup.config.js, whatev.html
+        files: editor.bundle.js, whatev.html
