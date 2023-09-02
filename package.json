@@ -3,5 +3,17 @@
     "@rollup/plugin-node-resolve": "^15.2.1",
     "codemirror": "^6.0.1",
     "rollup": "^3.28.1"
-  }
+  },
+  "name": "ddynamic-web",
+  "description": "compile with `node_modules/.bin/rollup editor.ts -c`\r shoulf re-proj this as a node proj with version lock",
+  "version": "1.0.0",
+  "main": "editor.bundle.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "rollup editor.ts -c",
+    "test": "echo \"no test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
