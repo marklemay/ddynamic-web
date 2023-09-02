@@ -13,7 +13,7 @@ const regexpLinter = linter(view => {
     })
   diagnostics.push({
       from: view.viewport.from,
-      to: view.viewport.to/2,
+      to: Math.floor(view.viewport.to/2),
       severity: "warning", // error, warning  could restyle hint with type info
       message: "sodjnf", //view.state.doc.toString(),
     })
