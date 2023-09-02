@@ -1,0 +1,38 @@
+@top Program { decl* }
+
+@skip { space | LineComment }
+
+decl {
+  datadecl { "data" Identifier ":" expression}
+}
+
+
+expression {
+  Identifier |
+  Num |
+  TyU {"*"} |
+  Application { "(" expression* ")" } 
+}
+
+@tokens {
+  Identifier { $[a-zA-Z_]+ }
+  
+  Num { $[0-9]+ }
+
+  String { '"' (!["\\] | "\\" _)* '"' }
+
+  Boolean { "#t" | "#f" }
+
+  LineComment { "--" ![\n]* }
+
+  space { $[ \t\n\r]+ }
+
+  "(" ")"
+  
+  "{" "}"
+  ":"
+  "*"
+  "data" 
+}
+
+@detectDelim
