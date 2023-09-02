@@ -29,3 +29,12 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm start
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+#        if: startsWith(github.ref, 'refs/tags/')
+      with:
+        tag_name : thesis
+        prerelease : true
+#           draft: true
+        files: rollup.config.js, whatev.html
