@@ -52,14 +52,14 @@ jobs:
     - run: npm run build --if-present
     - run: npm start
     
-    - name: Create Release
-      uses: softprops/action-gh-release@v1
-#        if: startsWith(github.ref, 'refs/tags/')
-      with:
-        tag_name : ide
-        prerelease : true
-#           draft: true
-        files: editor.bundle.js, Ffi.wasm, index.html
+#     - name: Create Release
+#       uses: softprops/action-gh-release@v1
+# #        if: startsWith(github.ref, 'refs/tags/')
+#       with:
+#         tag_name : ide
+#         prerelease : true
+# #           draft: true
+#         files: editor.bundle.js, Ffi.wasm, index.html
 
     - name: Setup Pages
       uses: actions/configure-pages@v5
