@@ -152,7 +152,7 @@ const regexpLinter = linter(view => {
         for (const warning of res.contents) {
             console.log("warning=", warning);
 
-                        diagnostics.push({
+            diagnostics.push({
                 from: warning.warningStart,
                 to: warning.warningEnd,
                 severity: "warning",
@@ -179,25 +179,18 @@ const regexpLinter = linter(view => {
     return diagnostics
   })
   
+  import starterDoc from "./ex/ex.dt";
+
   new EditorView({
     extensions: [basicSetup, 
     //javascript(),
     //EXAMPLE(),
     regexpLinter
     ],
+    doc: starterDoc,
     parent: document.querySelector("#mainEditor")
   })
   
-  new EditorView({
-    extensions: [basicSetup, 
-    //javascript(),
-    //EXAMPLE(),
-    regexpLinter
-    ],
-    parent: document.querySelector("#replEditor")
-  })
-
-
 
 
 
