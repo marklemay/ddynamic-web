@@ -37,4 +37,4 @@ jobs:
         tag_name : ide
         prerelease : true
 #           draft: true
-        files: editor.bundle.js, whatev.html
+        files: editor.bundle.js, Ffi.wasm, index.html
