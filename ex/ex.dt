@@ -1,5 +1,5 @@
 
-
+-- start out with the ususal definitions
 data Unit : * {
   | tt  : Unit
 };
@@ -21,14 +21,23 @@ add x y =
    | (S p) => S (add p y)
    } ;
 
-badd : Nat -> Nat -> Nat ;
-badd x y = 
-  case x <_ => Nat> {
-   | (Z)   => y
-   | (S (Z)) => 0 -- incorrect exactly when x = 1
-   | (S (S (Z))) => S (S y)
-   | (S p) => S (add p y) -- TODO clean up
-   } ;
+-- there is some magic syntactic sugar for S, Z
+
+-- ! will let you evaluate (hove mouse over)
+! add 1 2;
+
+
+--this laguage will only warn if there is a potential type mismatch
+
+test : Bool ;
+test = 1 ;
+
+-- when you run the program you get a witness of the error on the origional warning
+
+--! test; -- uncomment me!
+
+
+-- more involved example
 
 -- length indexed lists
 data Vec : * -> Nat -> * {
@@ -69,38 +78,23 @@ rep A a n =
 okFun : Nat -> Bool ;
 okFun x = head Bool x (rep Bool true (add x 1)) ;
 
+-- ok function still evaluates even though the equality is not verified
+! okFun 2;
+! okFun 4;
 
-
-
-alsookFun : Nat -> Bool ;
-alsookFun x = head Bool x (rep Bool true (add 1 x)) ;
-
-
-
-
-
-
-
-
-badFun : Nat -> Bool ;
-badFun x = head Bool x (rep Bool true x) ;
--- defualt cbv checknig is aggressive
-
-
+-- bad addition
+badd : Nat -> Nat -> Nat ;
+badd x y = 
+  case x {
+   | (Z)   => y
+   | (S (Z)) => 0 -- incorrect exactly when x = 1
+   | (S (S (Z))) => S (S y)
+   | (S p) => S (add p y) -- TODO clean up
+   } ;
 
 almostFun : Nat -> Bool ;
 almostFun x = head Bool x (rep Bool true (badd x 1)) ;
 
-
-
-
-
-
-
-
-
-test : Bool ;
-test = 1 ;
-
-
-
+! almostFun 0;
+-- ! almostFun 1;  -- uncomment me!
+! almostFun 2;

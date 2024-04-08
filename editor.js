@@ -149,7 +149,8 @@ const regexpLinter = linter(view => {
 
         case "Warnings" :
 
-        for (const warning of res.contents) {
+        console.log("res=", res);
+        for (const warning of res["warnings"]) {
             console.log("warning=", warning);
 
             diagnostics.push({
@@ -159,7 +160,16 @@ const regexpLinter = linter(view => {
                 message: warning.msg,
               })
         }
+        for (const info of res["infos"]) {
+            console.log("infos=", info);
 
+            diagnostics.push({
+                from: info.infoStart,
+                to: info.infoEnd,
+                severity: "info",
+                message: info.infoMsg,
+              })
+        }
             break;
     }
 

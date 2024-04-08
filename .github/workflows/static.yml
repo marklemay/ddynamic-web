@@ -36,6 +36,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
+# TODO should not run a matix for this build
     strategy:
       matrix:
         node-version: [20.x]
