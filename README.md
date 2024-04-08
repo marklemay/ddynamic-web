@@ -1,7 +1,9 @@
 # ddynamic-web
+[![build and release static site](https://github.com/marklemay/ddynamic-web/actions/workflows/static.yml/badge.svg)](https://github.com/marklemay/ddynamic-web/actions/workflows/static.yml)
+
 a web interface for the [dDynamic](https://github.com/marklemay/dDynamic) language.
 
-https://marklemay.github.io/ddynamic-web/
+try it at https://marklemay.github.io/ddynamic-web/
 
 ## to contribute
 compile with `npm start`
